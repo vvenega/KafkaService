@@ -20,8 +20,11 @@ public class Config {
 		
 		public static void readProperties(String file){
 			
+			FileInputStream input = null;
+			
 		    try {
-		      properties.load(new FileInputStream(new File(file)));
+		      input = new FileInputStream(new File(file));
+		      properties.load(input);
 		      
 		      /*System.out.println(properties.get("DRIVER"));
 		      System.out.println(properties.get("URL"));
@@ -33,6 +36,13 @@ public class Config {
 		    } catch (IOException e) {
 		      // TODO Auto-generated catch block
 		      System.err.println(e.getMessage());
+		    }finally {
+		    	try {
+			    	if(input!=null)
+			    		input.close();
+			    	}catch(Exception e) {
+			    		System.err.println(" Error Closing File properties Kafka Service"+e.getLocalizedMessage());
+			    	}
 		    }
 			
 
