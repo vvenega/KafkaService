@@ -25,13 +25,15 @@ public class KafkaServiceController {
 	
 	//private final static String VALID_CUSTOMER = "http://192.168.1.66:4200";
 	private final static String VALID_CUSTOMER = "*";
-	private final static String SERVER = "localhost:9092";
+	//private final static String SERVER = "10.105.36.207:9092";
+	private final static String SERVER = Config.getProperty("IPSERVER")+":"+Config.getProperty("PORT");
 	private final static String TOPIC_EVENT = "eventtopic";
 	private final static String TOPIC_CHAT = "productrequested";
 	private static Producer<String, EventBean> producerEvent=null;
 	private static Producer<String, ChatBean> producerChat=null;
 	public final static Logger logger = LoggerFactory.getLogger(KafkaServiceController.class.getName());
-	private final static String ADVERTISED_HOST_NAME_VALUE = "localhost";
+	//private final static String ADVERTISED_HOST_NAME_VALUE = "10.105.36.207";
+	private final static String ADVERTISED_HOST_NAME_VALUE = Config.getProperty("IPSERVER");
 	private final static String ADVERTISED_HOST_NAME_KEY ="advertised.host.name";
 
 	@CrossOrigin(origins = VALID_CUSTOMER)
