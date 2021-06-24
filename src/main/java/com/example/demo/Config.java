@@ -26,10 +26,6 @@ public class Config {
 		      input = new FileInputStream(new File(file));
 		      properties.load(input);
 		      
-		      /*System.out.println(properties.get("DRIVER"));
-		      System.out.println(properties.get("URL"));
-		      System.out.println(properties.get("USUARIO"));
-		      System.out.println(properties.get("CLAVE"));*/
 		    } catch (FileNotFoundException e) {
 		      // TODO Auto-generated catch block
 		      System.err.println(e.getMessage());
